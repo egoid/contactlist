@@ -1,0 +1,56 @@
+html
+  head
+    link(rel='stylesheet', href='styles/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/lemonade/2.1.0/lemonade.min.css')
+    link(type='text/css', rel='stylesheet', href='styles/framaterial.min.css')
+    link(rel='stylesheet', href='http://framaterial.github.io/framaterial/styles/main.min.css')
+  body
+    .bit-3
+      .m-card.off-screen(data-background-url='../images/samples/header_sample_2.png', data-type='modal' data-depth='3')
+        section.inner__card
+          h2.title
+          p
+            ul
+                input#name.m-input-blue(type='text', placeholder='name')
+                input#email.m-input-blue(type='text', placeholder='email')
+                input#phone.m-input-blue(type='text', placeholder='phone')
+        footer
+          a#adder.material-btn-blue(href='javascript:void(0)')
+            span.m-icon.md-content-add.right
+            |  Add
+      #xcard.m-card.off-screen(data-background-url='../images/samples/header_sample_2.png', data-type='modal' data-depth='3')
+        section.inner__card
+          h2.title
+          p
+            ul
+                input#editName.m-input-blue(type='text', placeholder='name')
+                input#editEmail.m-input-blue(type='text', placeholder='email')
+                input#editPhone.m-input-blue(type='text', placeholder='phone')
+        footer
+          a#editor.material-btn-red(href='javascript:void(0)', data-btn-type='toggle', data-toggle='xcard')
+            span.m-icon.md-content-add.right
+            |  Edit      
+    .container
+      .center
+        .bit-1
+          header
+            h2
+              | - Contact List -
+              a.material-btn-lightblue-(href='#card_1', data-btn-type='toggle') Add
+          section
+            ul.material-list-step.hierarchical-timing
+              each item in items
+                  #incoming.bit-4
+                    .m-card(data-background-url='../images/samples/header_sample_2.png', data-depth='3' style='z-index:-999')
+                      section.inner__card
+                        h2.title
+                        p
+                          ul
+                            each val, prop in item
+                              li= val
+                      footer
+                        a#del.material-btn-flat-black(href='#') Delete
+                        a#openEdit.material-btn-red-(href='#', data-btn-type='toggle') Edit
+      script(type='text/javascript', src='https://code.jquery.com/jquery-2.1.1.min.js')
+      script(type='text/javascript', src='scripts/framaterial.min.js')
+      script(type='text/javascript', src='scripts/main.js')
